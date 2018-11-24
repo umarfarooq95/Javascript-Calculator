@@ -75,3 +75,5 @@ function onOperatorsClick(){
     currentInputValue = currentInputValue + " " + clickedOperatorDivText + " "
     $('.value').val(currentInputValue);
 }
+
+module.exports.init = init
