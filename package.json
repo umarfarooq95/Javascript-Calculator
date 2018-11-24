@@ -1,0 +1,20 @@
+{
+  "name": "javascript-calculator",
+  "version": "1.0.1",
+  "description": "This is a simple Js Calculator",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umarfarooq95/Javascript-Calculator.git"
+  },
+  "keywords": [
+    "npm",
+    "npm-javascript-calculators"
+  ],
+  "author": "Mohamed Umar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/umarfarooq95/Javascript-Calculator/issues"
+  },
+  "homepage": "https://github.com/umarfarooq95/Javascript-Calculator#readme"
+}
