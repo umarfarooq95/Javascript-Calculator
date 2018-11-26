@@ -1,16 +1,37 @@
-$(document).ready(init);
+(function($) {
+
+    $.fn.javascriptCalcInit = init;
+
+}(jQuery));
+
+
+$(document).ready(function(){
+    $(".wrapper").addClass('root').javascriptCalcInit();
+})
 
 function init() {
-    $('.value').val();
+
+    buildBasicStructure();
     buildNumbers();
     buildClearAndEqualDivs()
     buildCalcOperators()
 }
 
+function buildBasicStructure(){
+    var input = $('<input/>').addClass('value').attr('readonly', true);
+    var bodyWrapper = $('<div></div>').addClass('body-wrapper');
+    var numbersWrapper = $('<div></div>').addClass('numbers-wrapper')
+    var operatorsWrapper = $('<div></div>').addClass('operators-wrapper')
+    $(bodyWrapper).append(numbersWrapper);
+    $(bodyWrapper).append(operatorsWrapper);
+    $(".root").append(input);
+    $(".root").append(bodyWrapper);
+}
+
 function buildNumbers() {
     var numberWrapper = $('.numbers-wrapper')
     for (var i = 0; i < 10; i++) {
-        var numbersDiv = $('<div></div>').addClass('numbers').attr('id', 'numbersDiv'+i);
+        var numbersDiv = $('<div></div>').addClass('numbers').attr('id', 'numbersDiv' + i);
         var textDiv = $('<div></div>').addClass('text-center')
         textDiv[0].innerText = i
         $(numbersDiv).append(textDiv);
@@ -24,7 +45,7 @@ function buildClearAndEqualDivs() {
     var arr = ['c', '='];
     var numberWrapper = $('.numbers-wrapper')
     for (var j = 0; j < arr.length; j++) {
-        var numbersDiv = $('<div></div>').addClass('numbers').attr('id', 'clearOrEqualDivs'+j);
+        var numbersDiv = $('<div></div>').addClass('numbers').attr('id', 'clearOrEqualDivs' + j);
         var textDiv = $('<div></div>').addClass('text-center')
         textDiv[0].innerText = arr[j]
         $(numbersDiv).append(textDiv);
@@ -34,10 +55,10 @@ function buildClearAndEqualDivs() {
     }
 }
 
-function onClearOrEqualClick () {
+function onClearOrEqualClick() {
     var clickedDiv = $(this);
     var clickedDivText = clickedDiv[0].innerText
-    if(clickedDivText !='c'){
+    if (clickedDivText != 'c') {
         var currentInputValue = $('.value').val();
         var result = eval(currentInputValue);
         $('.value').val(result);
@@ -47,18 +68,18 @@ function onClearOrEqualClick () {
 }
 
 function onNumbersClick() {
-  var clickedNumbersDiv = $(this);
-  var clickedNumbersDivText = +clickedNumbersDiv[0].innerText
-  var currentInputValue = $('.value').val();
-  currentInputValue+=clickedNumbersDivText
-  $('.value').val(currentInputValue);
+    var clickedNumbersDiv = $(this);
+    var clickedNumbersDivText = +clickedNumbersDiv[0].innerText
+    var currentInputValue = $('.value').val();
+    currentInputValue += clickedNumbersDivText
+    $('.value').val(currentInputValue);
 }
 
 function buildCalcOperators() {
     var operators = ['+', '-', '*', '/'];
     var operatorWrapper = $('.operators-wrapper')
     for (var j = 0; j < operators.length; j++) {
-        var numbersDiv = $('<div></div>').addClass('numbers').attr('id', 'operatorsDivs'+j);
+        var numbersDiv = $('<div></div>').addClass('numbers').attr('id', 'operatorsDivs' + j);
         var textDiv = $('<div></div>').addClass('text-center')
         textDiv[0].innerText = operators[j]
         $(numbersDiv).append(textDiv);
@@ -68,12 +89,10 @@ function buildCalcOperators() {
     }
 }
 
-function onOperatorsClick(){
+function onOperatorsClick() {
     var clickedOperatorDiv = $(this);
     var clickedOperatorDivText = clickedOperatorDiv[0].innerText
     var currentInputValue = $('.value').val();
     currentInputValue = currentInputValue + " " + clickedOperatorDivText + " "
     $('.value').val(currentInputValue);
 }
-
-module.exports.init = init

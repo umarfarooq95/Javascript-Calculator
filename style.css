@@ -4,7 +4,7 @@
 body{
     margin: 0;
 }
-.wrapper{
+.root{
     margin: auto;
     width: 480px;
     height: 355px;
