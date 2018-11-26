@@ -6,11 +6,11 @@
 
 
 $(document).ready(function(){
-    $(".wrapper").addClass('root').javascriptCalcInit();
+    $(".wrapper").javascriptCalcInit();
 })
 
 function init() {
-
+    $(this).addClass('root')
     buildBasicStructure();
     buildNumbers();
     buildClearAndEqualDivs()
