@@ -1,6 +1,6 @@
 {
   "name": "javascript-calculator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "This is a simple Js Calculator",
   "main": "index.js",
   "repository": {
