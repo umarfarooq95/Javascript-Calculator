@@ -14,7 +14,7 @@ Step 2: Initialize the plugin on your page. For example
 
 ```javascript
 // initialize with defaults
-$(".class-name").javascriptCalcInit();
+$(".wrapper").javascriptCalcInit();
 ```
 ### Using NPM
 To install using the `npm` package manager run:
