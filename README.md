@@ -16,3 +16,7 @@ Step 2: Initialize the plugin on your page. For example
 // initialize with defaults
 $(".class-name").javascriptCalcInit();
 ```
+### Using NPM
+To install using the `npm` package manager run:
+
+`$ npm install javascript-calculator`
