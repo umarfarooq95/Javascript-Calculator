@@ -1,7 +1,7 @@
 # Javascript-Calculator
 Simple Javascript Calculator
 <p align="center">
-  <img src="https://compass1.org/wp-content/uploads/2015/06/Calculator_clipped_rev_1.png" width="350" title="Calculator">
+  <img src="./src/images/calc.png" width="350" title="Calculator">
 </p>
 
 Step 1: add some class to the div.
