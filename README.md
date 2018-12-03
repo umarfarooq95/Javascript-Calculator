@@ -4,6 +4,9 @@
   <img src="./src/images/calc.png" width="350" title="Calculator">
 </p>
 
+### Demo
+[Links](https://js-calculator.now.sh/)
+
 ## Note
 #### Add index.js to your html file
 
