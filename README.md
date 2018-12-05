@@ -5,7 +5,17 @@
 </p>
 
 ### Demo
-[Links](https://js-calculator.now.sh/)
+[Demo](https://js-calculator.now.sh/)
+
+### Features
+- Support Keyboard Key bindings;
+- Type 0 to 9 Numbers;
+- Shift plus + : will add the Numbers;
+- Shift plus * : will multiply the Numbers;
+- -: will subtract the Numbers;
+- / : will divide the Numbers;
+- = : will give the Output;
+
 
 ## Note
 #### Add index.js to your html file

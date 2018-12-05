@@ -62,7 +62,10 @@
     }
 
     function buildBasicStructure(){
-        var input = $('<input/>').css(value).addClass('value').attr('readonly', true);
+        var input = $('<input/>').css(value).addClass('value').attr({
+            'readonly':true
+        });
+        input.on('keydown',onKeyDownTrigger)
         var bodyWrapper = $('<div></div>').css(bodyWrapperClassObj).addClass('body-wrapper');
         var numbersWrapper = $('<div></div>').css(numbersWrapperClassObj).addClass('numbers-wrapper')
         var operatorsWrapper = $('<div></div>').css(operatorsWrapperClassObj).addClass('operators-wrapper')
@@ -70,6 +73,27 @@
         $(bodyWrapper).append(operatorsWrapper);
         $(".root").append(input);
         $(".root").append(bodyWrapper);
+    }
+
+    function onKeyDownTrigger(e) {
+        var keyCode = e.keyCode;
+        var operators = ['+','-', '*', '/'];
+        if (operators.indexOf(e.key) >= 0) {
+            e.target.value = e.target.value + " " + e.key +" ";
+            return;
+        }
+        // this condition is for '=' has keyCode 187
+        if(keyCode == 187){
+            var currentInputValue = $('.value').val();
+            var result = eval(currentInputValue);
+            $('.value').val(result);
+            return;
+        }
+        // first condition is for without numpad numbers
+        // second condition is for with numpad numbers
+        if ((keyCode <= 57 && keyCode >= 48)||(keyCode <= 105 && keyCode >= 96) ) {
+            e.target.value += e.key
+        }
     }
 
     function buildNumbers() {
