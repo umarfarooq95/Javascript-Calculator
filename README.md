@@ -82,3 +82,7 @@ To install using the `npm` package manager run:
 ## Contribute
 
 Contributions are always welcome!
+
+## License
+
+[MIT](https://github.com/umarfarooq95/Javascript-Calculator/blob/master/LICENSE)
