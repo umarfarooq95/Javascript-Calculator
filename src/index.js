@@ -2,16 +2,6 @@
 
     $.fn.javascriptCalcInit = init;
 
-    var root = {
-        margin: 'auto',
-        width: '480px',
-        height: '355px',
-        border: '2px solid black',
-        marginTop: '50px',
-        background: '#e8e8e8',
-        borderRadius: '5px',
-        "box-sizing": 'border-box'
-    };
     var value = {
         width: '90%',
         margin: '19px',
@@ -53,12 +43,20 @@
         'margin: 0;'+
     '}<style>';
 
-    function init() {
-        $(this).css(root).addClass('root').append(styleTag);
+    function init(options) {
+        $(this).css({
+            margin: 'auto',
+            width: '480px',
+            height: '355px',
+            border: '2px solid black',
+            marginTop: '50px',
+            background: options && options.background ?options.background :'#e8e8e8',
+            borderRadius: '5px'
+        }).addClass('root').append(styleTag);
         buildBasicStructure();
-        buildNumbers();
-        buildClearAndEqualDivs()
-        buildCalcOperators()
+        buildNumbers(options);
+        buildClearAndEqualDivs(options)
+        buildCalcOperators(options)
     }
 
     function buildBasicStructure(){
@@ -94,12 +92,29 @@
         if ((keyCode <= 57 && keyCode >= 48)||(keyCode <= 105 && keyCode >= 96) ) {
             e.target.value += e.key
         }
+        // this condition is for "backspace" has keyCode 8
+        if(keyCode == 8){
+            var currentInputValue = $('.value').val();
+            var slicedStr = currentInputValue.slice(0,currentInputValue.length-1)
+            $('.value').val(slicedStr)
+        }
     }
 
-    function buildNumbers() {
+    function buildNumbers(options) {
         var numberWrapper = $('.numbers-wrapper')
         for (var i = 0; i < 10; i++) {
-            var numbersDiv = $('<div></div>').css(numbersClassObj).addClass('numbers').attr('id', 'numbersDiv' + i);
+            var numbersDiv = $('<div></div>').css({
+                width: '75px',
+                height: '40px',
+                display: 'inline-block',
+                margin: '10px 19px 19px 19px',
+                border: '2px solid lightblue',
+                padding: '10px',
+                color:options && options.numbersColor ?options.numbersColor :'black',
+                background: options && options.numbersBackground ?options.numbersBackground :'white',
+                cursor: 'pointer',
+                borderRadius: '5px'
+            }).addClass('numbers').attr('id', 'numbersDiv' + i);
             var textDiv = $('<div></div>').css({textAlign: 'center'})
             textDiv[0].innerText = i
             $(numbersDiv).append(textDiv);
@@ -109,11 +124,22 @@
         }
     }
 
-    function buildClearAndEqualDivs() {
+    function buildClearAndEqualDivs(options) {
         var arr = ['c', '='];
         var numberWrapper = $('.numbers-wrapper')
         for (var j = 0; j < arr.length; j++) {
-            var numbersDiv = $('<div></div>').css(numbersClassObj).addClass('numbers').attr('id', 'clearOrEqualDivs' + j);
+            var numbersDiv = $('<div></div>').css({
+                width: '75px',
+                height: '40px',
+                display: 'inline-block',
+                margin: '10px 19px 19px 19px',
+                border: '2px solid lightblue',
+                padding: '10px',
+                color:options && options.clearAndEqualColors ?options.clearAndEqualColors :'black',
+                background: options && options.clearAndEqualBackgrounds ?options.clearAndEqualBackgrounds :'white',
+                cursor: 'pointer',
+                borderRadius: '5px'
+            }).addClass('numbers').attr('id', 'clearOrEqualDivs' + j);
             var textDiv = $('<div></div>').css({textAlign: 'center'})
             textDiv[0].innerText = arr[j]
             $(numbersDiv).append(textDiv);
@@ -143,11 +169,22 @@
         $('.value').val(currentInputValue);
     }
 
-    function buildCalcOperators() {
+    function buildCalcOperators(options) {
         var operators = ['+', '-', '*', '/'];
         var operatorWrapper = $('.operators-wrapper')
         for (var j = 0; j < operators.length; j++) {
-            var numbersDiv = $('<div></div>').css(numbersClassObj).addClass('numbers').attr('id', 'operatorsDivs' + j);
+            var numbersDiv = $('<div></div>').css({
+                width: '75px',
+                height: '40px',
+                display: 'inline-block',
+                margin: '10px 19px 19px 19px',
+                border: '2px solid lightblue',
+                padding: '10px',
+                color:options && options.operatorsColor ?options.operatorsColor :'black',
+                background: options && options.operatorsBackground ?options.operatorsBackground :'white',
+                cursor: 'pointer',
+                borderRadius: '5px'
+            }).addClass('numbers').attr('id', 'operatorsDivs' + j);
             var textDiv = $('<div></div>').css({textAlign: 'center'})
             textDiv[0].innerText = operators[j]
             $(numbersDiv).append(textDiv);

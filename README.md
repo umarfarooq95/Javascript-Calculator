@@ -7,15 +7,29 @@
 ### Demo
 [Demo](https://js-calculator.now.sh/)
 
-### Features
+### Feature
 - Support Keyboard Key bindings;
+
+### Keyboard
 - Type 0 to 9 Numbers;
 - Shift plus + : will add the Numbers;
 - Shift plus * : will multiply the Numbers;
 - -: will subtract the Numbers;
 - / : will divide the Numbers;
 - = : will give the Output;
+- backspace : will clear the values;
 
+### Options
+
+| name     | description    | type     |
+|----------|----------------|----------|--------------|
+|background | change the calculator background | String |
+|numbersBackground | change the numbers box background | String |
+|numbersColor | change the numbers box color | String |
+|operatorsBackground | change the operators box background | String |
+|operatorsColor | change the operators box color | String |
+|clearAndEqualBackgrounds | change the clear and equal box background | String |
+|clearAndEqualColors | change the clear and equal box color | String |
 
 ## Note
 #### Add index.js to your html file
@@ -48,8 +62,23 @@ Step 2: Initialize the plugin on your page. For example
 ```javascript
 // initialize with defaults
 $(".wrapper").javascriptCalcInit();
+
+// initialize with options
+$(".wrapper").javascriptCalcInit({
+        background:'black',
+        numbersBackground:'#8c4141',
+        numbersColor:'white',
+        operatorsBackground:'#FF5722',
+        operatorsColor:'white',
+        clearAndEqualBackgrounds:'#8c4141',
+        clearAndEqualColors:'white',
+});
 ```
 ### Using NPM
 To install using the `npm` package manager run:
 
 `$ npm install javascript-calculator`
+
+## Contribute
+
+Contributions are always welcome!
