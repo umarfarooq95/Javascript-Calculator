@@ -21,8 +21,8 @@
 
 ### Options
 
-| name     | description    | type     |
-|----------|----------------|----------|--------------|
+| Name     | Description    | Type     |
+|----------|----------------|----------|
 |background | change the calculator background | String |
 |numbersBackground | change the numbers box background | String |
 |numbersColor | change the numbers box color | String |
